@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.dateformat import format
+from django.conf import settings
 
 class Account(models.Model):
 
@@ -17,4 +19,4 @@ class Transaction(models.Model):
     amount_transferred = models.DecimalField(max_digits=8, decimal_places=2)
 
     def __str__(self):
-        return str(datetime_of_transaction)
+        return format(self.datetime_of_transaction, settings.DATETIME_FORMAT)

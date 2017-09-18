@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 
 {% block main %}
+<h1>Transaction screen</h1>
 {% if accounts %}
-{% for account in accounts %}
-    {{ account.name }}
-{% endfor %}
+<table>
+    <tr>
+        <th>Account number</th>
+        <th>Account balance</th>
+    </tr>
+    {% for account in accounts %}
+    <tr>
+        <td><a href="{% url 'view_account' account.name %}">{{ account.name }}</a></td>
+        <td>&#163;{{ account.balance }}</td>
+    </tr>
+    {% endfor %}
+</table>
 {% else %}
-<p>There are no accounts yet</p>
+<p>There are no accounts to show.</p>
 {% endif %}
 {% endblock %}

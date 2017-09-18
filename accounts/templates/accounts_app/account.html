@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>Transactions for account number {{ account.name }}</h1>
+<p>Current balance: {{ account.balance }}</p>
+<p><a href="{% url 'transaction_screen' %}">Back</a></p>
+</table>
+{% if transactions %}
+    <h1>Transactions</h1>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+    {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.datetime_of_transaction }}</td>
+            <td>{% if transaction.from_account == account.name %}&#45;{% endif %}{{ transaction.amount_transferred }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endif %}
+{% endblock %}
