@@ -3,6 +3,7 @@
 {% block main %}
 <h1>Transaction screen</h1>
 {% if accounts %}
+<p><a href="{% url 'payment' %}">Make a payment</a></p>
 <table>
     <tr>
         <th>Account number</th>
