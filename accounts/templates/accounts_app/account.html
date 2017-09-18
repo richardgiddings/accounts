@@ -11,11 +11,13 @@
         <tr>
             <th>Date</th>
             <th>Amount</th>
+            <th>From/To</th>
         </tr>
     {% for transaction in transactions %}
         <tr>
             <td>{{ transaction.datetime_of_transaction }}</td>
             <td>{% ifequal transaction.from_account.name account.name %}&#45;{% endifequal %}{{ transaction.amount_transferred }}</td>
+            <td>From {{ transaction.from_account.name }} to {{ transaction.to_account.name }}</td>
         </tr>
     {% endfor %}
     </table>
