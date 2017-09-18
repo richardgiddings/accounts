@@ -9,6 +9,7 @@ from django.contrib import messages
 def transaction_screen(request):
 
     accounts = Account.objects.all()
+    accounts = accounts.order_by('name')
 
     return render(request, 
                   template_name='accounts_app/transaction_screen.html',
