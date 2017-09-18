@@ -1,2 +1,4 @@
 logfile
 accounts/__pycache__/
+accounts_app/migrations/__pycache__/
+accounts_app/__pycache__/
