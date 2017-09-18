@@ -14,8 +14,8 @@ class Account(models.Model):
 class Transaction(models.Model):
 
     datetime_of_transaction = models.DateTimeField(auto_now_add=True, blank=True)
-    from_account = models.IntegerField()
-    to_account = models.IntegerField()
+    from_account = models.ForeignKey(Account, related_name="from_account")
+    to_account = models.ForeignKey(Account, related_name="to_account")
     amount_transferred = models.DecimalField(max_digits=8, decimal_places=2)
 
     def __str__(self):
